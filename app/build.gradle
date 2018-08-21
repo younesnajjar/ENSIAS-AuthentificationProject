@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.younes.authentificationproject"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -31,4 +31,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     compile 'com.android.support:recyclerview-v7:21.0.+'
+    implementation  'com.github.medyo:fancybuttons:1.8.4'
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:support-compat:26.1.0'
+    compile 'com.daimajia.easing:library:2.0@aar'
+    compile 'com.daimajia.androidanimations:library:2.3@aar'
+    compile 'me.zhanghai.android.materialprogressbar:library:1.1.6'
+    compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
 }
