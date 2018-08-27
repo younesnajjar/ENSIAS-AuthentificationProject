@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "854453307828",
+    "firebase_url": "https://ensias-authentificationproject.firebaseio.com",
+    "project_id": "ensias-authentificationproject",
+    "storage_bucket": "ensias-authentificationproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854453307828:android:32bf6c820bc78ffe",
+        "android_client_info": {
+          "package_name": "com.example.younes.authentificationproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854453307828-lo2rlg8s1s1qr3lglaam49olvuhnh1fu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.younes.authentificationproject",
+            "certificate_hash": "4bc389be6de3b700b28ba53bd7bde70a44f0ffd6"
+          }
+        },
+        {
+          "client_id": "854453307828-eilvc224ug8hplp6qt9hg8piniktile6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC57h_X34UJFr_3BHeD4zCKDGOP15McirM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854453307828-eilvc224ug8hplp6qt9hg8piniktile6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     tools:context=".ui.activities.UserListActivity">
-    <!--<ImageView-->
-        <!--android:id="@+id/back_arrow"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:src="@drawable/ic_action_back"-->
-        <!--android:visibility="invisible"/>-->
-    <!--<Button-->
-        <!--android:id="@+id/logout_button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="LogOut"/>-->
 <LinearLayout
         android:id="@+id/upBar"
         android:layout_width="0dp"
@@ -36,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:minHeight="60dp"
             android:orientation="horizontal">
 
             <ImageButton
@@ -53,7 +43,7 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:layout_constraintEnd_toEndOf="@+id/upBar"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,21 +81,6 @@
 
     </LinearLayout>
 
-    <!--<ListView-->
-        <!--android:id="@+id/kids_list"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:background="#ffecb3"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/upBar">-->
-
-
-    <!--</ListView>-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_list_recycler_view"
         android:layout_width="0dp"
@@ -117,5 +92,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upBar" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/ic_action_chat"
+        android:tint="#888B4513"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

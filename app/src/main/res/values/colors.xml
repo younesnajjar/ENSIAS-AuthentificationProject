@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="gold">#ffecb3</color>
+    <color name="goldcold">#ffeca5</color>
     <color name="silver">#f3e5f5</color>
+    <color name="silvercold">#f7e3f3</color>
 </resources>

@@ -9,9 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.view.animation.Transformation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,6 +23,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.younes.authentificationproject.R;
+import com.example.younes.authentificationproject.animations.SwipeController;
 import com.example.younes.authentificationproject.models.Kids;
 import com.example.younes.authentificationproject.models.Organisation;
 import com.example.younes.authentificationproject.models.UserInfo;
@@ -72,6 +77,9 @@ public class UserListActivity extends AppCompatActivity {
                 logout();
             }
         });
+//        SwipeController swipeController = new SwipeController();
+//        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
+//        itemTouchhelper.attachToRecyclerView(myOrganisationsRecyclerView);
 
         // Layout Manager Settings
         myOrganisationsLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
