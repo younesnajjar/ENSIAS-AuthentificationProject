@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
  * Created by younes on 8/19/2018.
  */
 
-public class Kids {
-    public Kids(Integer id, int organisationId, String firstName, String lastName, String gender, String birthday, String parentEmail, String deletedAt, String createdAt, String updatedAt) {
+public class Kid {
+    public Kid(Integer id, int organisationId, String firstName, String lastName, String gender, String birthday, String parentEmail, String deletedAt, String createdAt, String updatedAt) {
         this.id = id;
         this.organisationId = organisationId;
         this.firstName = firstName;
@@ -133,7 +133,7 @@ public class Kids {
 
     public void setOrganisationId(int organisationId) { this.organisationId = organisationId; }
 
-    public static Kids getKidFromCursor(Cursor cursor){
+    public static Kid getKidFromCursor(Cursor cursor){
         Logger.errorPring("getKidFromCursor is inisialized");
         int id = cursor.getInt(cursor.getColumnIndex("id"));
         int organisationId = cursor.getInt(cursor.getColumnIndex("id_organisation"));
@@ -146,6 +146,6 @@ public class Kids {
         String createdAt = cursor.getString(cursor.getColumnIndex("created_at"));
         String updatedAt = cursor.getString(cursor.getColumnIndex("updated_at"));
 
-        return new Kids(id,organisationId,firstName,lastName,gender,birthday,parentEmail,deletedAt,createdAt,updatedAt);
+        return new Kid(id,organisationId,firstName,lastName,gender,birthday,parentEmail,deletedAt,createdAt,updatedAt);
     }
 }

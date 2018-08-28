@@ -11,6 +11,12 @@ import java.util.List;
  */
 
 public class UserInfo implements Serializable {
+
+
+    @SerializedName("status")
+    @Expose
+    private String status;
+
     @SerializedName("token_type")
     @Expose
     private String tokenType;
@@ -29,6 +35,10 @@ public class UserInfo implements Serializable {
     @SerializedName("type")
     @Expose
     private String type;
+    @SerializedName("enrollments")
+    @Expose
+    private List<Enrollment> enrollments = null;
+
 
     public String getTokenType() {
         return tokenType;
@@ -78,4 +88,14 @@ public class UserInfo implements Serializable {
         this.type = type;
     }
 
+    public List<Enrollment> getEnrollments() {
+        return enrollments;
+    }
+
+    public void setEnrollments(List<Enrollment> enrollments) {
+        this.enrollments = enrollments;
+    }
+    public String getStatus() {
+        return status;
+    }
 }

@@ -61,7 +61,7 @@ public class Assignments {
         private String updatedAt;
         @SerializedName("child")
         @Expose
-        private Kids kids;
+        private Kid kid;
 
         public Integer getId() {
             return id;
@@ -127,12 +127,12 @@ public class Assignments {
             this.updatedAt = updatedAt;
         }
 
-        public Kids getKids() {
-            return kids;
+        public Kid getKid() {
+            return kid;
         }
 
-        public void setKids(Kids kids) {
-            this.kids = kids;
+        public void setKid(Kid kid) {
+            this.kid = kid;
         }
     }
 }

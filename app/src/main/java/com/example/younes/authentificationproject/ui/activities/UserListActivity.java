@@ -9,28 +9,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.view.animation.Transformation;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.younes.authentificationproject.R;
-import com.example.younes.authentificationproject.animations.SwipeController;
-import com.example.younes.authentificationproject.models.Kids;
+import com.example.younes.authentificationproject.models.Kid;
 import com.example.younes.authentificationproject.models.Organisation;
 import com.example.younes.authentificationproject.models.UserInfo;
 import com.example.younes.authentificationproject.services.DatabaseHelper;
 import com.example.younes.authentificationproject.ui.adapters.KidsRecyclerViewAdapter;
 import com.example.younes.authentificationproject.ui.adapters.OrganisationsRecyclerViewAdapter;
-import com.example.younes.authentificationproject.utils.Logger;
 import com.example.younes.authentificationproject.utils.SaveSharedPreference;
 
 import java.util.ArrayList;
@@ -73,13 +64,11 @@ public class UserListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SaveSharedPreference.setLoggedIn(getApplicationContext(), false);
-                SaveSharedPreference.putAccessToken(getApplicationContext(), null);
+                SaveSharedPreference.setAccessToken(getApplicationContext(), null);
                 logout();
             }
         });
-//        SwipeController swipeController = new SwipeController();
-//        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
-//        itemTouchhelper.attachToRecyclerView(myOrganisationsRecyclerView);
+
 
         // Layout Manager Settings
         myOrganisationsLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
@@ -87,8 +76,10 @@ public class UserListActivity extends AppCompatActivity {
 
 
         // Adapter Settings
-
-        setOrganisationAdapter();
+        if(SaveSharedPreference.getUserType(this).equals("tutor"))
+            setOrganisationAdapter();
+        else
+            setParentAdapter();
 
     }
 
@@ -97,6 +88,23 @@ public class UserListActivity extends AppCompatActivity {
         mOrganisationRecyclerViewAdapter = new OrganisationsRecyclerViewAdapter(getOrganisationsList(),this,listener);
         myOrganisationsRecyclerView.setAdapter(mOrganisationRecyclerViewAdapter);
         runLayoutAnimation(myOrganisationsRecyclerView);
+    }
+    private void setParentAdapter() {
+
+        mKidsRecyclerViewAdapter = new KidsRecyclerViewAdapter(getParentKidsList(),this);
+        myOrganisationsRecyclerView.setAdapter(mKidsRecyclerViewAdapter);
+        runLayoutAnimation(myOrganisationsRecyclerView);
+    }
+
+    private List<Kid> getParentKidsList() {
+        List<Kid> selectedOrganisationKids = new ArrayList<>();
+        Cursor cursor = mDatabase.rawQuery("SELECT * FROM kids", null);
+        if(cursor.moveToFirst()){
+            do{
+                selectedOrganisationKids.add(Kid.getKidFromCursor(cursor));
+            }while(cursor.moveToNext());
+        }
+        return selectedOrganisationKids;
     }
 
 
@@ -110,12 +118,12 @@ public class UserListActivity extends AppCompatActivity {
         }
         return myOrganisations;
     }
-    public List<Kids> getOrganisationKidsList(int organisationId){
-        List<Kids> selectedOrganisationKids = new ArrayList<>();
+    public List<Kid> getOrganisationKidsList(int organisationId){
+        List<Kid> selectedOrganisationKids = new ArrayList<>();
         Cursor cursor = mDatabase.rawQuery("SELECT * FROM kids WHERE id_organisation = "+organisationId, null);
         if(cursor.moveToFirst()){
             do{
-                selectedOrganisationKids.add(Kids.getKidFromCursor(cursor));
+                selectedOrganisationKids.add(Kid.getKidFromCursor(cursor));
             }while(cursor.moveToNext());
         }
         return selectedOrganisationKids;
